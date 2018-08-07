@@ -311,34 +311,10 @@ export default {
       this.$parent.show='news';
     },
     preview(){
-      if(this.form.id){
-        request({
-            url:'/community/news/queryDetailNews',
-            method:'get',
-            params:{'id':this.form.id}
-        }).then(response => {
-          // 这里是处理正确的回调
-          this.form.oldStatus=1001;
-          this.save(1004,3)
-        });
-      }
+      this.save(1001,3)
     },
     publish(){
-      if(this.form.id){
-        request({
-            url:'/community/news/queryDetailNews',
-            method:'get',
-            params:{'id':this.form.id}
-        }).then(response => {
-          // 这里是处理正确的回调
-          this.form.oldStatus=1001;
-          this.save(1004,2)
-        });
-      }else{
-        this.save(1004,2)
-      }
-      
-      
+      this.save(1004,2)
     },
     openUpload(i){
       this.index=i;

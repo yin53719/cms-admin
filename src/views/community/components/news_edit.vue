@@ -355,16 +355,12 @@ export default {
       var isFullpush = data.isFullpush;
       if(ts==1 || ts==3){
         var text='修改';
-        if(data.status==1004){
-          data.oldStatus=1004;
-        }else{
-           data.oldStatus=data.status;
-        }
+        data.oldStatus=data.status;
+        data.status=1001
       }else if(ts==2){
         var text='发布';
-         data.oldStatus=1001;
+         data.oldStatus=data.status;
          data.status=1004;
-
       }
       //是否展示
       if(isShow){

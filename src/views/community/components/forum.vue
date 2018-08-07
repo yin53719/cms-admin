@@ -93,11 +93,11 @@
     </div>
     <el-row :gutter="20">
         <el-col :span="24" style="text-align:right;margin-bottom:10px;" >
-          <el-button class="filter-item"  v-waves icon="search" @click="handleFilter">查询</el-button>
-          <el-button class="filter-item"  v-waves icon="search" @click="resetTemp">重置</el-button>
-          <el-button class="filter-item"    style="margin-left: 10px;" @click="handleCreate"  icon="add">新增帖子</el-button>
-          <el-button class="filter-item"   style="margin-left: 10px;"  @click="blockUpdata('update')"  icon="edit">修改板块</el-button>
-          <el-button class="filter-item"  style="margin-left: 10px;" @click="blockCreate('create')" icon="edit">新增板块</el-button>
+          <el-button class="filter-item"  v-waves icon="search" @click="handleFilter" type="primary">查询</el-button>
+          <el-button class="filter-item"  v-waves icon="search" @click="resetTemp" type="primary">重置</el-button>
+          <el-button class="filter-item"    style="margin-left: 10px;" @click="handleCreate" type="primary" icon="add">新增帖子</el-button>
+          <el-button class="filter-item"   style="margin-left: 10px;"  @click="blockUpdata('update')" type="primary" icon="edit">修改板块</el-button>
+          <el-button class="filter-item"  style="margin-left: 10px;" @click="blockCreate('create')" type="primary" icon="edit">新增板块</el-button>
           <el-button class="filter-item"    style="margin-left: 10px;" @click="synArticle" type="primary" icon="edit">同步</el-button>
       </el-col>     
   </el-row>
@@ -191,7 +191,7 @@ export default {
   data() {
     return {
       form: {
-        pageNo: 1,
+        page: 1,
         limit: 10,
         blockId:'',
         releaseTime:[],
@@ -209,10 +209,6 @@ export default {
       list: null,
       total: null,
       listLoading: true,
-      listQuery: {
-        page: 1,
-        limit: 10
-      },
       publishStatus: [{code:null,name:'全部'},{code:0,name:'未发布'},{code:1,name:'已发布'},{code:2,name:'已删除'}],
       dialogFormVisible: false,
       dialogStatus: "",
@@ -413,7 +409,7 @@ export default {
     },
     resetTemp() {
       this.form = {
-        pageNo: 1,
+        page: 1,
         limit: 10,
         blockId:this.queryListBlock[0].id,
         releaseTime:[],
