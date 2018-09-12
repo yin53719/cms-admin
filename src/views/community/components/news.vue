@@ -380,7 +380,7 @@ export default {
     },
     handleUpdate(row) {
       
-      this.$parent.newsid=row.id;
+      this.$parent.newsid=row._id;
       this.$parent.show='newsedit'
     },
     handleDetail(row){

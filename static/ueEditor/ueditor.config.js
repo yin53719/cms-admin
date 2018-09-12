@@ -358,7 +358,7 @@
 		// xss 过滤是否开启,inserthtml等操作
 		,xssFilterRules: true
 		//input xss过滤
-		,inputXssFilter: true
+		,inputXssFilter: false
 		//output xss过滤
 		,outputXssFilter: true
 		// xss过滤白名单 名单来源: https://raw.githubusercontent.com/leizongmin/js-xss/master/lib/default.js
@@ -388,7 +388,8 @@
 			div:    ['class', 'style'],
 			dl:     ['class', 'style'],
 			dt:     ['class', 'style'],
-			em:     ['class', 'style'],
+            em:     ['class', 'style'],
+            embed:['src','allowFullScreen','width','height','align','type','allowScriptAccess'],
 			font:   ['color', 'size', 'face'],
 			footer: [],
 			h1:     ['class', 'style'],
@@ -401,7 +402,8 @@
 			hr:     [],
 			i:      ['class', 'style'],
 			img:    ['src', 'alt', 'title', 'width', 'height', 'id', '_src', 'loadingclass', 'class', 'data-latex'],
-			ins:    ['datetime'],
+            ins:    ['datetime'],
+            iframe:['src','width','height','frameborder','allowfullscreen'],
 			li:     ['class', 'style'],
 			mark:   [],
 			nav:    [],
@@ -425,7 +427,7 @@
 			tt:     [],
 			u:      [],
 			ul:     ['class', 'style'],
-			video:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width', 'class', 'style','webkit-playsinline','playsinline','x5-playsinline','x5-video-player-type','x5-video-player-fullscreen']
+			video:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width', 'class', 'style','webkit-playsinline','playsinline','x5-playsinline','x5-video-player-type','x5-video-player-fullscreen','poster']
 		}
     };
 

@@ -125,9 +125,9 @@
             width: width.value,
             height: height.value,
             align: align
-        }, !isModifyUploadVideo ? 'upload':null);
+        }, isModifyUploadVideo ? 'upload':null);
     }
-   //临时更改上传视频 !isModifyUploadVideo 参数取反
+
     /**
      * 将元素id下的所有代表视频的图片插入编辑器中
      * @param id
@@ -167,8 +167,6 @@
     function convert_url(url){
         if ( !url ) return '';
         url = utils.trim(url)
-
-
             // .replace(/v\.youku\.com\/v_show\/id_([\w\-=]+)\.html/i, 'player.youku.com/player.php/sid/$1/v.swf')
             // .replace(/(www\.)?youtube\.com\/watch\?v=([\w\-]+)/i, "www.youtube.com/v/$2")
             // .replace(/youtu.be\/(\w+)$/i, "www.youtube.com/v/$1")
@@ -183,7 +181,6 @@
             // .replace(/my\.tv\.sohu\.com\/[\w]+\/[\d]+\/([\d]+)\.shtml.*$/i, "share.vrs.sohu.com/my/v.swf&id=$1");
 
         return url;
-        //临时更改去除url规则验证
     }
 
     /**
@@ -272,10 +269,11 @@
         if ( !url )return;
 
         var conUrl = convert_url(url);
-       //去除预览错误
+
         conUrl = utils.unhtmlForUrl(conUrl);
-        $G("preview").innerHTML = 
-        '<embed class="previewVideo" ' +
+
+        $G("preview").innerHTML = ''+
+        '<embed class="previewVideo" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
             ' src="' + conUrl + '"' +
             ' width="' + 420  + '"' +
             ' height="' + 280  + '"' +
